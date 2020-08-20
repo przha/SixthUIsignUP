@@ -1,0 +1,133 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(title: ''),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.network(
+            'https://i.redd.it/1sbpm1j612i51.jpg',
+            fit: BoxFit.cover,
+          ),
+          Positioned(
+            left: 50.0,
+            top: 80,
+            child: Icon(
+              Icons.image,
+              color: Colors.white,
+              size: 70.0,
+            ),
+          ),
+          Positioned(
+            left: 60.0,
+            top: 170,
+            child: Container(
+              width: 200.0,
+              child: Text(
+                'Enjoy the trip with me',
+                style: TextStyle(color: Colors.white, fontSize: 30.0),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 0.0,
+            right: 0.0,
+            bottom: 180.0,
+            child: Center(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 45.0, vertical: 16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.horizontal(left: Radius.circular(20.0),right: Radius.circular(20.0))
+                  ),
+                  child:Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 12.0),
+                    child: Container(
+                      width: 120.0,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 0.0,
+            right: 0.0,
+            bottom: 130.0,
+            child: Center(
+              child: Padding(
+                padding:
+                const EdgeInsets.symmetric(horizontal: 45.0, vertical: 16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.horizontal(left: Radius.circular(20.0),right: Radius.circular(20.0))
+                  ),
+                  child:Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 12.0),
+                    child: Container(
+                      width: 120.0,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Sign in',
+                        style: TextStyle(
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
